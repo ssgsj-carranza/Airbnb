@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
+import SmallCard from '../components/SmallCard';
 
 export default function Home({exploreData}) {
   return (
@@ -15,8 +16,8 @@ export default function Home({exploreData}) {
           <section className="pt-6">
             <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
             {/* pull data from server - API endpoint */}
-            {exploreData.map((item) => (
-              <h1>{item.location}</h1>
+            {exploreData?.map(({distance, img, location}) => (
+              <SmallCard key={img} img={img} distance={distance} location={location} />
             ))}
           </section>
         </main>
