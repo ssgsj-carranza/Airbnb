@@ -2,6 +2,8 @@ import React from 'react'
 import Image from 'next/image';
 import {SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UsersIcon} from '@heroicons/react/solid';
 import {useState} from 'react';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 function Header() {
     const [searchInput, setSearchInput] = useState('');
@@ -29,6 +31,11 @@ function Header() {
                     <UserCircleIcon className='h-6'/>
                 </div>   
             </div>
+            {searchInput && (
+                <div>
+
+                </div>
+            )}
         </header>
     )
 }
