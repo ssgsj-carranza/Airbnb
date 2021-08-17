@@ -14,8 +14,13 @@ function Header() {
     const selectionRange = {
         startDate: startDate,
         endDate: endDate,
-        key:'Selection'
-    }
+        key:'selection'
+    };
+
+    const handleSelect = (ranges) => {
+        setStartDate(ranges.selection.startDate);
+        setEndDate(ranges.selection.endDate);
+    };
 
     return (
         <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
@@ -42,7 +47,10 @@ function Header() {
             </div>
             {searchInput && (
                 <div>
-                    <DateRangePicker ranges={[selectionRange]}/>
+                    <DateRangePicker ranges={[selectionRange]}
+                                     minDate={new Date()}
+                                     rangeColors={['#FD5B61']}
+                                     onChange={handleSelect}/>
                 </div>
             )}
         </header>
