@@ -52,8 +52,9 @@ function Header() {
                                      rangeColors={['#FD5B61']}
                                      onChange={handleSelect}
                     />
-                    <div>
-                        <h2>Number of Guests</h2>
+                    <div className='flex items-center border-b mb-4'>
+                        <h2 className='text-2xl flex-grow font-semibold'>Number of Guests</h2>
+                        <UsersIcon className='h-5'/>
                     </div>
                 </div>
             )}
