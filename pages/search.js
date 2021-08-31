@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import {useRouter} from 'next/dist/client/router';
 import {format} from 'date-fns';
 
-function Search() {
+function Search({searchResults}) {
     const router = useRouter();
     
     //ES6 DESTRUCTURING
@@ -16,7 +16,7 @@ function Search() {
 
     return (
         <div>
-            <Header />
+            <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`}/>
             <main className="flex">
                 <section className="flex-grow pt-14 px-6">
                     <p className="text-xs">300+ Stays - {range} - for {noOfGuests} guests</p>
@@ -35,4 +35,14 @@ function Search() {
     )
 }
 
-export default   Search
+export default   Search;
+
+export async function getServerSideProps() {
+    const searchResults = await fetch('https://links.papareact.com/isz').then((res) => res.json());
+    
+    return {
+        props:{
+            searchResults,
+        },
+    };
+}
