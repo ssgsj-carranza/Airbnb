@@ -15,6 +15,7 @@ function Map() {
             mapStyle='mapbox://styles/ssgsj-carranza/ckt0ritab02o917k71u8sjv2i'
             mapboxApiAccessToken={process.env.mapbox_key}
             {...viewport}
+            onViewportChange={(nextViewport) => setViewport(nextViewport)}
         ></ReactMapGL>
     )
 }
