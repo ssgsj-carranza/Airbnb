@@ -41,7 +41,7 @@ function Map({searchResults}) {
                             role='img' 
                             onClick={() => setSelectedLocation(result)} 
                             className='cursor-pointer text-2xl animate-bounce'>
-                                📌
+                                🍥
                         </p>        
                     </Marker>
                     {/* This is the popup that shows after marker is clicked */}
