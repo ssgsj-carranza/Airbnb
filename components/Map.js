@@ -30,7 +30,14 @@ function Map({searchResults}) {
         >
             {searchResults.map((result) => (
                 <div key={result.long}>
-                    <Marker></Marker>
+                    <Marker
+                        longitude={result.long}
+                        latitude={result.lat}
+                        offsetLeft={-20}
+                        offsetTop={-10}
+                    >
+                        <p className='cursor-pointer text-2xl animate-bounce'>📌</p>        
+                    </Marker>
                 </div>
             ))}
         </ReactMapGL>
