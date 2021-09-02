@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import getCenter from 'geolib/es/getCenter';
 
 function Map({searchResults}) {
@@ -27,7 +27,13 @@ function Map({searchResults}) {
             mapboxApiAccessToken={process.env.mapbox_key}
             {...viewport}
             onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        ></ReactMapGL>
+        >
+            {searchResults.map((result) => (
+                <div key={result.long}>
+                    <Marker></Marker>
+                </div>
+            ))}
+        </ReactMapGL>
     )
 }
 
